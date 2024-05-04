@@ -31,10 +31,13 @@ public class SecurityConfig {
                 .authorizeRequests(auth -> auth
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/api/posts/**").permitAll()
+                .requestMatchers("/user/**").hasRole("USER")
+                .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
                 .userDetailsService(myUserDetailsService)
                 .httpBasic(withDefaults())
                 .build();
+
     }
 
     @Bean

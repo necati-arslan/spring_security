@@ -12,13 +12,11 @@ public class HomeController {
         return "Hello, World!";
     }
 
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/user")
     public String user() {
         return "Hello, User!";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
     public String admin() {
         return "Hello, Admin!";
