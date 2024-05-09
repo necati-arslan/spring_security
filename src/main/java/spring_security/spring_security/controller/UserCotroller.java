@@ -11,12 +11,13 @@ public class UserCotroller {
         return "Admine özel mesajdır";
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping("/user")
     public String  dashboard() {
         return "Üyelere özel mesajdır";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/home")
+
     public String index(){
         return "Merhaba. Üye Olun";
     }
