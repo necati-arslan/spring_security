@@ -5,9 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import spring_security.spring_security.Repository.PostRepository;
+import spring_security.spring_security.Repository.UserRepository;
 import spring_security.spring_security.model.Post;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
+import spring_security.spring_security.model.User;
 
 
 @SpringBootApplication
@@ -18,9 +19,10 @@ public class SpringSecurityApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(PostRepository posts) {
+	CommandLineRunner commandLineRunner(PostRepository postsRepositpry, UserRepository userRepository) {
 		return args -> {
-			posts.save(new Post("title demo","Slug demo","content demo","author demo"));
+			postsRepositpry.save(new Post("title demo","Slug demo","content demo","author demo"));
+			userRepository.save(new User("demo user1","demo password", "ROLE_USER"));
 		};
 	}
 
