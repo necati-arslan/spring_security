@@ -1,19 +1,19 @@
 package spring_security.spring_security.model;
 
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Document(collection = "posts")
+
 public class Post {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private ObjectId id;
+
     private String title;
     private String slug;
     private String content;
@@ -31,13 +31,11 @@ public class Post {
         this.publishedOn = LocalDateTime.now();
     }
 
-    public Long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public String getTitle() {
         return title;
