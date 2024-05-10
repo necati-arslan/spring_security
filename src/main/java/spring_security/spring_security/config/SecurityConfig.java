@@ -20,7 +20,8 @@ public class SecurityConfig {
                 .authorizeRequests(auth -> auth
                         .requestMatchers("/posts/**").permitAll()
                         .requestMatchers("/home/**").permitAll()
-                        .requestMatchers("/user/**").hasRole("USER")
+                        .requestMatchers("/user/**").permitAll()
+                        .requestMatchers("/all/**").permitAll()
                         .requestMatchers("/admin/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(withDefaults())

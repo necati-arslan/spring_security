@@ -22,7 +22,7 @@ public class SpringSecurityApplication {
 	CommandLineRunner commandLineRunner(PostRepository postsRepositpry, UserRepository userRepository) {
 		return args -> {
 			postsRepositpry.save(new Post("title demo","Slug demo","content demo","author demo"));
-			userRepository.save(new User("demo user1","demo password", "ROLE_USER"));
+			userRepository.save(new User("demouser1","demo password", "ROLE_USER"));
 		};
 	}
 
