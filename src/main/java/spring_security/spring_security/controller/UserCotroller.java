@@ -38,7 +38,7 @@ public class UserCotroller {
     @GetMapping("/all")
     public List<User> getAllUser(){
        List<User> user= userRepository.findAll();
-        System.out.println(user);
+        System.out.println("users:"+user);
        return user;
 
     }
