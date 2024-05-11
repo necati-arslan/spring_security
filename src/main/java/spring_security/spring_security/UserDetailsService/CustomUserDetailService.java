@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import spring_security.spring_security.Repository.UserRepository;
+import spring_security.spring_security.model.CustomUserDetail;
 import spring_security.spring_security.model.User;
 
 
@@ -29,13 +30,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
 
-        // Convert the User entity to UserDetails
-        return org.springframework.security.core.userdetails.User.builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
-                // You might need to adjust authorities based on your user roles/permissions
-                .authorities(user.getRoles())
-                .build();
+        return new CustomUserDetail(user);
 
 
     }
