@@ -41,9 +41,12 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-
                 .authorizeHttpRequests(x ->
                         x.requestMatchers("/login/**","/home/**").permitAll()
+                )
+                .authorizeHttpRequests(x ->
+                        x.requestMatchers("/user").hasRole("USER")
+                                .requestMatchers("/admin").hasRole("ADMIN")
                 )
                 .sessionManagement(x -> x.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

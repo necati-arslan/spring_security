@@ -23,7 +23,7 @@ public class SpringSecurityApplication {
 	CommandLineRunner commandLineRunner(PostRepository postsRepositpry, UserRepository userRepository,  BCryptPasswordEncoder passwordEncoder) {
 		return args -> {
 			postsRepositpry.save(new Post("title demo","Slug demo","content demo","author demo"));
-			userRepository.save(new User("demouser1",passwordEncoder.encode("password"), "ROLE_USER"));
+			userRepository.save(new User("demouser2",passwordEncoder.encode("password"), "ROLE_USER"));
 		};
 	}
 
